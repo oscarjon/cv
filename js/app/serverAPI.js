@@ -11,6 +11,15 @@ var ServerAPI = (function() {
         });
     }
 
+    function getAllUsers(callback) {
+        $.ajax({
+            method: 'GET',
+            url: BASE_URL + '/posts',
+            complete: callback,
+            async: false,
+        });
+    }
+
     function postUser(object, callback) {
         $.ajax({
             method: 'POST',
@@ -21,9 +30,20 @@ var ServerAPI = (function() {
         });
     }
 
+     function deleteUser(userId, callback) {
+        $.ajax({
+            method: 'DELETE',
+            url: BASE_URL + '/posts/' + userId,
+            complete: callback,
+            async: false,
+        });
+    }
+
     return {
         getUser: getUser,
-        postUser: postUser
+        postUser: postUser,
+        getAllUsers: getAllUsers,
+        deleteUser: deleteUser
     };
 
 })();
