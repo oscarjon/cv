@@ -1,6 +1,6 @@
 var ServerAPI = (function() {
 
-    var BASE_URL = 'https://oscarjon.github.io/cv/db.json';
+    var BASE_URL = 'http://localhost:3000';
 
     function getUser(userId, callback) {
         $.ajax({
