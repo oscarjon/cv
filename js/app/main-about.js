@@ -9,7 +9,7 @@ define([
 
         $(function() {
 
-            $('.container h1').html(model.getTitle());
+            updateUserlist(model);
 
             $('.container h2').html(model.getText());
 
@@ -22,17 +22,18 @@ define([
                 }
                 ServerAPI.postUser(object, function(data, status, res) {
                     document.getElementById("title").value = "";
-                    hej(model);
+                    updateUserlist(model);
                 });
 
             });
 
-                 document.getElementById("deleteuser").addEventListener("click", function() {
+            document.getElementById("deleteuser").addEventListener("click", function() {
 
                 var id = document.getElementById("asd").value;
 
                 ServerAPI.deleteUser(id, function(data, status, res) {
                     document.getElementById("asd").value = "";
+                    updateUserlist(model);
                 });
 
             });
